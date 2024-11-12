@@ -9,17 +9,23 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner"
 import { Input } from './ui/input';
 
+interface details{
+    model:string;
+    benchmark:string;
+    bottleneckPercentage:number
+}
+
 const BottleneckAnalyzer = () => {
   const [cpuModel, setCpuModel] = useState('');
   const [gpuModel, setGpuModel] = useState('');
   const [ramModel, setRamModel] = useState('');
   const [bottleneck, setBottleneck] = useState<string | undefined>(undefined);
-  const [details, setDetails] = useState<any | undefined>(undefined);
-  const [error, setError] = useState<any | undefined>('');
+  const [details, setDetails] = useState<details | undefined>(undefined);
+  const [error, setError] = useState<string | undefined>('');
 
-  const [cpus, setCpus] = useState<any[]>([]);
-  const [gpus, setGpus] = useState<any[]>([]);
-  const [rams, setRams] = useState<any[]>([]);
+  const [cpus, setCpus] = useState<details[]>([]);
+  const [gpus, setGpus] = useState<details[]>([]);
+  const [rams, setRams] = useState<details[]>([]);
 
   const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(null);
 
@@ -78,7 +84,7 @@ const BottleneckAnalyzer = () => {
     fetchComponentData();
   }, []);
 
-  const renderCombobox = (type: 'cpu' | 'gpu' | 'ram', data: any[], value: string, setValue: React.Dispatch<React.SetStateAction<string>>) => (
+  const renderCombobox = (type: 'cpu' | 'gpu' | 'ram', data: details[], value: string, setValue: React.Dispatch<React.SetStateAction<string>>) => (
     <Popover>
       <PopoverTrigger asChild>
         <Button variant="outline" className="w-[100%] sm:w-[600px] justify-between">
@@ -91,8 +97,7 @@ const BottleneckAnalyzer = () => {
           <Input
             className=' focus:no-underline outline-none border-0'
             placeholder={`Search ${type?.toUpperCase()}`}
-            onChange={(e:any) => handleSearch(type, e.target.value)}
-            // onChangeCapture={(e:any) => handleSearch(type, e.target.value)}
+            onChange={(e) => handleSearch(type, e.target.value)}
           />
           <CommandList>
             <CommandEmpty>No {type} found.</CommandEmpty>
