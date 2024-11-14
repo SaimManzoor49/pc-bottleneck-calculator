@@ -14,7 +14,6 @@ const initializeData = async () => {
 
 export async function GET(request: NextRequest,) {
     await initializeData();
-  console.log()
   
     const type = request.nextUrl.searchParams.get('type')
     const searchText = request.nextUrl.searchParams.get('searchText')

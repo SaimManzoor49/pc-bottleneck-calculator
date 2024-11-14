@@ -1,0 +1,10 @@
+Type,Part Number,Brand,Model,Rank,Benchmark,Samples,URL,Width,Height
+Resolution,,N/A,1920x1080,1,100,10000,https://www.resolutionbenchmark.com/1920x1080,1920,1080
+Resolution,,N/A,2560x1440,2,150,8000,https://www.resolutionbenchmark.com/2560x1440,2560,1440
+Resolution,,N/A,3840x2160,3,250,5000,https://www.resolutionbenchmark.com/3840x2160,3840,2160
+Resolution,,N/A,1280x720,4,80,12000,https://www.resolutionbenchmark.com/1280x720,1280,720
+Resolution,,N/A,1024x768,5,60,15000,https://www.resolutionbenchmark.com/1024x768,1024,768
+Resolution,,N/A,1600x900,6,110,9000,https://www.resolutionbenchmark.com/1600x900,1600,900
+Resolution,,N/A,1366x768,7,90,13000,https://www.resolutionbenchmark.com/1366x768,1366,768
+Resolution,,N/A,5120x2880,8,300,1000,https://www.resolutionbenchmark.com/5120x2880,5120,2880
+Resolution,,N/A,7680x4320,9,500,500,https://www.resolutionbenchmark.com/7680x4320,7680,4320
