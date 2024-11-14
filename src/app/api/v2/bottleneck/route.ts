@@ -5,7 +5,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export async function POST(request: NextRequest) {
-  await delay(10000); // 10-second delay
+  await delay(2000); // 10-second delay
 
   const body = await request.json();
   console.log(body);
