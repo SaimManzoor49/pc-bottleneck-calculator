@@ -12,16 +12,34 @@ export async function POST(request: NextRequest) {
 
   const prompt = `Please analyze the provided PC specifications in JSON format, assessing potential bottlenecks in each component category—CPU, GPU, RAM, storage, and resolution—as well as in overall system balance. Keep in mind that this PC is primarily intended for ${body?.purpose}, and that each component’s compatibility with this purpose is critical.
 
-if any input field has no value then do not identify a bottleneck for that field and also do not give recommendations for that field; simply skip that field.
+If any input field has no value, do not identify a bottleneck for that field and do not provide recommendations for it; simply skip that field.
 
-For any component where the specifications are insufficient to make an informed evaluation, perform additional research online to gather relevant details. Provide your assessment using the following JSON format, with each field explicitly named as shown:
+For any component where the specifications are insufficient to make an informed evaluation, perform additional research online to gather relevant details. Provide your assessment using the following JSON format, including the percentage of bottleneck for each applicable category where a bottleneck is identified, explicitly naming each field as shown:
 {
-  "cpu_bottleneck": "yes/no",
-  "gpu_bottleneck": "yes/no",
-  "ram_bottleneck": "yes/no",
-  "storage_bottleneck": "yes/no",
-  "resolution_bottleneck": "yes/no",
-  "overall_bottleneck": "yes/no",
+  "cpu_bottleneck": {
+    "exists": "yes/no",
+    "percentage": "x"
+  },
+  "gpu_bottleneck": {
+    "exists": "yes/no",
+    "percentage": "x"
+  },
+  "ram_bottleneck": {
+    "exists": "yes/no",
+    "percentage": "x"
+  },
+  "storage_bottleneck": {
+    "exists": "yes/no",
+    "percentage": "x"
+  },
+  "resolution_bottleneck": {
+    "exists": "yes/no",
+    "percentage": "x"
+  },
+  "overall_bottleneck": {
+    "exists": "yes/no",
+    "percentage": "x"
+  },
   "recommendations": [
     "suggestion 1",
     "suggestion 2"
