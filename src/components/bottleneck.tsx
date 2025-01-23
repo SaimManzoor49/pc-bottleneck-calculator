@@ -39,6 +39,7 @@ import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Progress } from "@/components/ui/progress";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import  './styles.css'
 
 interface IBottleneck {
   cpu_bottleneck?: {exists: string; percentage:string};
@@ -99,7 +100,7 @@ const BottleneckAnalyzer = () => {
       setRams(rams);
       setResolutions(resolutions);
       setHdds(hdds);
-    } catch (error) {
+    } catch {
       toast.error("Failed to load component data");
     } finally {
       setInitialLoading(false);
@@ -163,7 +164,7 @@ const BottleneckAnalyzer = () => {
       } else {
         throw new Error("Invalid response format");
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to analyze bottleneck");
       setError("An error occurred during analysis");
     } finally {
@@ -296,7 +297,7 @@ const BottleneckAnalyzer = () => {
   ];
 
   return (
-    <Card className="w-full max-w-4xl">
+    <Card className="w-full max-w-4xl border-none shadow-none sm:border-2 sm:shadow sm:shadow-border ">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold text-center">
           PC Bottleneck Calculator
@@ -340,9 +341,9 @@ const BottleneckAnalyzer = () => {
             </div>
 
             <div className="pt-4 flex justify-center">
-              <Button
+            <button 
                 onClick={analyzeBottleneck}
-                className="w-full md:w-auto"
+                className="w-full md:w-auto button"
                 disabled={loading || !cpuModel || !gpuModel || !purpose}
               >
                 {loading ? (
@@ -353,7 +354,7 @@ const BottleneckAnalyzer = () => {
                 ) : (
                   "Analyze Bottleneck"
                 )}
-              </Button>
+              </button>
             </div>
 
             {error && (
